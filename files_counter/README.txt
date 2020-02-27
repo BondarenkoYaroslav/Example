@@ -1,0 +1,1 @@
+Keyboard-based console application for counting files in folders.
