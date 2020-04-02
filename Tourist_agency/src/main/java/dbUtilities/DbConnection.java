@@ -19,7 +19,7 @@ public class DbConnection {
 	private static final String LOGIN = ReaderProperties.readFile(PATH_DB_CONFIGS, "db.login");
 	private static final String PASSWORD = ReaderProperties.readFile(PATH_DB_CONFIGS, "db.password");
 
-	public static Connection getConnection() {
+	private static Connection getConnection() {
 
 		try {
 			Class.forName(JDBC_DRIVER);
@@ -28,32 +28,15 @@ public class DbConnection {
 			throw new RuntimeException(e);
 		}
 	}
-	
-	public static Connection getConnectionPool() {
-				
-		try {
 
+	public static Connection getConnectionPool() {
+
+		try {
 			InitialContext initialContext = new InitialContext();
-//			DataSource dataSource = (DataSource) initialContext.lookup("java:global/env/jdbc/touristagency");
 			DataSource dataSource = (DataSource) initialContext.lookup("java:comp/env/jdbc/touristagency");
-//			DataSource dataSource = (DataSource) initialContext.lookup("jdbc/touristagency");
 			return dataSource.getConnection();
 		} catch (NamingException | SQLException e) {
-			
-/*			
- * В идеале здесь должна быть строка
- * 	"throw new RuntimeException(e);"
- *  и она здесь будет!
- */
-			throw new RuntimeException(e);
-//			return getConnection();
+			throw new RuntimeException(e);			
 		}
 	}
 }
-
-//   <resource-ref>
-//   <description>DB Connection</description>
-//   <res-ref-name>jdbc/touristagency</res-ref-name>
-//   <res-type>javax.sql.DataSource</res-type>
-//   <res-auth>Container</res-auth>
-//	 </resource-ref>
