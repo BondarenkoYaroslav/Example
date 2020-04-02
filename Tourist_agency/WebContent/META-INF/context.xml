@@ -2,17 +2,11 @@
 
 <!DOCTYPE xml>
 
-<Resource 
-			name="jdbc/touristagency" 
-    		auth="Container" 
-    		description="DB Connection"
-    		type="javax.sql.DataSource"
-            maxActive="10" 
-            maxIdle="10" 
-            maxWait="1000000"
-            maxAge="1000000"
-            username="root" 
-            password="1qwerty" 
-            driverClassName="com.mysql.cj.jdbc.Driver"
-            url="jdbc:mysql://localhost:3306/touristagency?useUnicode=true&amp;useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=UTC">
-</Resource>
+<Context>
+	<Resource name="jdbc/touristagency" auth="Container"
+		description="DB Connection" type="javax.sql.DataSource" maxActive="10"
+		maxIdle="10" maxWait="1000000" maxAge="1000000" username="root"
+		password="1qwerty" driverClassName="com.mysql.cj.jdbc.Driver"
+		url="jdbc:mysql://localhost:3306/touristagency?useUnicode=true&amp;useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=UTC">
+	</Resource>
+</Context>
